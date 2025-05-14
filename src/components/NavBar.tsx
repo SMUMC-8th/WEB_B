@@ -1,12 +1,20 @@
-import React from 'react';
-import './main.css';
-import logo from '../../assets/logo.svg'; // SVG를 경로로 불러오기
+import React from "react";
+import logo from "../assets/logo.svg"; // SVG를 경로로 불러오기
+import { useNavigate } from "react-router-dom";
 
 const NavBar: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
-    <nav className="relative w-full h-[150px] bg-white text-black flex justify-between items-center px-4 px-16 mb-4 group">
-      <img src={logo} alt="Logo" className="w-[220px] h-[100px] mr-2" /> {/* 로고 */}
-      <ul className="flex text-[24px] font-semibold gap-18">
+    <nav className="relative w-full h-[150px] bg-white text-black flex justify-between items-center px-4 px-16 group">
+      <img
+        src={logo}
+        alt="Logo"
+        onClick={() => navigate("/")}
+        className="w-[220px] h-[100px] mr-2"
+      />{" "}
+      {/* 로고 */}
+      <ul className="flex font-semibold text-md md:text-lg lg:text-xl xl:text-2xl gap-18">
         <li>
           <a href="#webIntro" className="hover:text-gray-400">
             웹사이트 소개
@@ -23,7 +31,10 @@ const NavBar: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="#calendar" className="hover:text-gray-400">
+          <a
+            onClick={() => navigate("/calendar")}
+            className="hover:text-gray-400"
+          >
             모집 일정
           </a>
         </li>
@@ -34,7 +45,7 @@ const NavBar: React.FC = () => {
         </li>
       </ul>
       {/* 드롭다운 메뉴 */}
-      <div className="absolute left-0 top-full w-full bg-gray-100 shadow-lg hidden group-hover:block">
+      <div className="absolute left-0 hidden w-full bg-gray-100 shadow-lg top-full group-hover:block">
         <ul className="flex justify-around py-4">
           <li>
             <a href="#category1" className="text-black hover:text-gray-600">
