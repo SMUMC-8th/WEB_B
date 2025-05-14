@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
       {/* 로고 */}
       <ul className="flex font-semibold text-md md:text-lg lg:text-xl xl:text-2xl gap-18">
         <li>
-          <a href="#webIntro" className="hover:text-gray-400">
+          <a href="/introWeb" className="hover:text-gray-400">
             웹사이트 소개
           </a>
         </li>
