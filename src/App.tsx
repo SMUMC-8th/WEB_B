@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
-function App() {
-  const [count, setCount] = useState(0)
+import SearchBar from "./Page/ClubIntroDetail/components/SearchBar";
+import SideBar from "./Page/ClubIntroDetail/SideBar";
+import ClubDetailCard from "./Page/ClubIntroDetail/ClubDetailCard";
+import ClubMatchingIntro from "./Page/ClubMatching/ClubMatchingIntro";
 
+function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <SearchBar categoryTitle="카테고리" />
+      <div className="flex">
+        <SideBar />
+        {children}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+function AppRoutes() {
+
+  return (
+    <Routes>
+      <Route
+        path="/clubintrodetail"
+        element={
+          <LayoutWithSidebar>
+            <ClubDetailCard
+              title="동아리명"
+              description="동아리 소개"
+              recruitTarget="대상"
+              recruitPeriod="기간"
+              recruitMethod="방법"
+              activities="활동"
+              faqLink="링크"
+            />
+          </LayoutWithSidebar>
+        }
+      />
+      <Route path="/clubmatching" element={<ClubMatchingIntro />} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppRoutes />
+    </Router>
+  );
+}
+
+export default App;
