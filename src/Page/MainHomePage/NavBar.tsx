@@ -8,7 +8,7 @@ const NavBar: React.FC = () => {
       <img src={logo} alt="Logo" className="w-[220px] h-[100px] mr-2" /> {/* 로고 */}
       <ul className="flex text-[24px] font-semibold gap-18">
         <li>
-          <a href="#webIntro" className="hover:text-gray-400">
+          <a href="/introWeb" className="hover:text-gray-400">
             웹사이트 소개
           </a>
         </li>
