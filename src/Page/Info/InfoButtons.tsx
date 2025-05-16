@@ -1,0 +1,27 @@
+import React from 'react';
+
+interface Props {
+  activeTab: string;
+  setActiveTab: (tab: string) => void;
+}
+
+const IntroButtons: React.FC<Props> = ({ activeTab, setActiveTab }) => {
+  return (
+    <div className="flex justify-center text-[24px] font-bold border-2">
+      <button
+        className={`px-10 py-2 ${activeTab === 'intro' ? 'bg-black text-white' : 'bg-white text-black'}`}
+        onClick={() => setActiveTab('intro')}
+      >
+        공지사항
+      </button>
+      <button
+        className={`px-10 py-2 ${activeTab === 'guide' ? 'bg-black text-white' : 'bg-white text-black'}`}
+        onClick={() => setActiveTab('guide')}
+      >
+        자주 묻는 질문
+      </button>
+    </div>
+  );
+};
+
+export default IntroButtons; 

@@ -5,7 +5,8 @@ import logo from '../../assets/logo.svg'; // SVG를 경로로 불러오기
 const NavBar: React.FC = () => {
   return (
     <nav className="relative w-full h-[150px] bg-white text-black flex justify-between items-center px-4 px-16 mb-4 group">
-      <img src={logo} alt="Logo" className="w-[220px] h-[100px] mr-2" /> {/* 로고 */}
+      <a href="/"><img src={logo} alt="Logo" className="w-[220px] h-[100px] mr-2" /></a>
+      
       <ul className="flex text-[24px] font-semibold gap-18">
         <li>
           <a href="/introWeb" className="hover:text-gray-400">
@@ -28,7 +29,7 @@ const NavBar: React.FC = () => {
           </a>
         </li>
         <li>
-          <a href="#notice" className="hover:text-gray-400">
+          <a href="/info" className="hover:text-gray-400">
             도움말
           </a>
         </li>
