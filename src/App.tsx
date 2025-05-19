@@ -7,7 +7,11 @@ import {
 import SearchBar from "./Page/ClubIntroDetail/components/SearchBar";
 import SideBar from "./Page/ClubIntroDetail/SideBar";
 import ClubDetailCard from "./Page/ClubIntroDetail/ClubDetailCard";
-import ClubMatchingIntro from "./Page/ClubMatching/ClubMatchingIntro";
+import ClubMatchingIntro from "./Page/ClubMatching/pages/ClubMatchingIntro";
+import ClubMatchingExperience from "./Page/ClubMatching/pages/ClubMatchingExperience";
+import ClubMatchingActivityFormat from "./Page/ClubMatching/pages/ClubMatchingActivityFormat";
+import ClubMatchingRecruitMethod from "./Page/ClubMatching/pages/ClubMatchingRecruitMethod";
+import ClubMatchingResult from "./Page/ClubMatching/pages/ClubMatchingResult";
 
 function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
   return (
@@ -32,16 +36,20 @@ function AppRoutes() {
             <ClubDetailCard
               title="동아리명"
               description="동아리 소개"
-              recruitTarget="대상"
-              recruitPeriod="기간"
-              recruitMethod="방법"
-              activities="활동"
-              faqLink="링크"
+              target="대상"
+              duration="기간"
+              method="방법"
+              activity="활동"
+              link="링크"
             />
           </LayoutWithSidebar>
         }
       />
       <Route path="/clubmatching" element={<ClubMatchingIntro />} />
+      <Route path="/clubmatching/experience" element={<ClubMatchingExperience />} />
+      <Route path="/clubmatching/activityformat" element={<ClubMatchingActivityFormat />} />
+      <Route path="/clubmatching/recruitmethod" element={<ClubMatchingRecruitMethod />} />
+      <Route path="/clubmatching/result" element={<ClubMatchingResult />} />
     </Routes>
   );
 }
