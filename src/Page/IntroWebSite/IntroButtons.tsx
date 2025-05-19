@@ -7,15 +7,15 @@ interface Props {
 
 const IntroButtons: React.FC<Props> = ({ activeTab, setActiveTab }) => {
   return (
-    <div className="flex justify-center text-[24px] font-bold border-2">
+    <div className="flex justify-center text-[18px] font-bold border-2">
       <button
-        className={`px-10 py-2 ${activeTab === 'intro' ? 'bg-black text-white' : 'bg-white text-black'}`}
+        className={`px-8 py-2 ${activeTab === 'intro' ? 'bg-black text-white' : 'bg-white text-black'}`}
         onClick={() => setActiveTab('intro')}
       >
         소개
       </button>
       <button
-        className={`px-10 py-2 ${activeTab === 'guide' ? 'bg-black text-white' : 'bg-white text-black'}`}
+        className={`px-8 py-2 ${activeTab === 'guide' ? 'bg-black text-white' : 'bg-white text-black'}`}
         onClick={() => setActiveTab('guide')}
       >
         이용안내

@@ -7,14 +7,15 @@ const IntroMain: React.FC = () => {
 
   return (
     <>
+
         <IntroButtons activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="w-full h-auto text-center">
             
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="flex flex-col gap-3">
                 {activeTab === 'intro' ? (
                 <div className='px-32 flex flex-col gap-8'>
-                    <h2 className='text-[32px] font-bold'>[SMUclub]이 무엇인가요?</h2>
-                    <p className='text-[24px] text-left'>
+                    <h2 className='text-[24px] font-bold'>[SMUclub]이 무엇인가요?</h2>
+                    <p className='text-[18px] text-left'>
                         SMUclub은 상명대학교 학생들을 위한 <strong>교내 동아리 통합 소개 플랫폼</strong>입니다.<br />
                         신입생과 재학생들이 <strong>쉽고 빠르게 관심 있는 동아리를 탐색</strong>하고,<br />
                         동아리 임원진은 <strong>공정한 기회를 가지고 홍보</strong>할 수 있도록 돕기 위해 제작되었습니다.<br />
@@ -25,9 +26,8 @@ const IntroMain: React.FC = () => {
                     </p>
                 </div>
                 ) : (
-                <div className='px-32 flex flex-col justify-center gap-8'>
-                    <h2 className='text-[32px] font-bold'>이용안내</h2>
-                    <p className='text-[24px]'>다음은 웹사이트 이용법이 어려운 분들을 위한 가이드입니다.<br />
+                <div className='px-32 flex flex-col justify-center gap-2'>
+                    <p className='text-[18px]'>다음은 웹사이트 이용법이 어려운 분들을 위한 가이드입니다.<br />
                     참고하여 자신에게 맞는 동아리를 찾아보세요!</p>
                     <CardSection />
                 </div>

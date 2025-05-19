@@ -20,14 +20,14 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
             className="flex justify-between items-center cursor-pointer"
             onClick={() => toggleAccordion(index)}
           >
-            <span className='flex items-center gap-2 text-[24px] font-bold'>
+            <span className='flex items-center gap-2 text-[18px] font-bold'>
               {<FaRegStar/>} {item.title || item.question}
             </span>
             <span>{openIndex === index ? '▲' : '▼'}</span>
           </div>
           {openIndex === index && (
             <div className="pt-4 text-left">
-              <p className='text-[20px] font-medium'>{item.content || item.answer}</p>
+              <p className='text-[16px] font-medium'>{item.content || item.answer}</p>
             </div>
           )}
         </div>

@@ -2,7 +2,7 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   return (
-    <div className="flex justify-center items-center my-12 gap-4">
+    <div className="flex justify-center items-center my-8 gap-4">
       <input
         type="text"
         placeholder="원하시는 동아리명 혹은 관심분야를 검색하세요!"

@@ -6,11 +6,11 @@ import CategoryCard from './CategoryCard'; // CategoryCard 컴포넌트 import
 
 const Main: React.FC = () => {
   return (
-    <div className="w-full h-[640px] bg-no-repeat bg-center bg-cover flex-grow 
+    <div className="w-full h-[75vh] bg-no-repeat bg-center bg-cover flex-grow 
         flex flex-col items-center justify-center "
          style={{ backgroundImage: `url(${smu})` }}>
 
-        <p className="text-white text-[40px] font-extrabold"
+        <p className="text-white text-[32px] font-extrabold"
             style={{
                 WebkitTextStroke: '1px black', // 글자 테두리
             }}>
@@ -20,7 +20,7 @@ const Main: React.FC = () => {
         <SerchBar />
 
         <div>
-          <p className='text-[20px] font-bold py-4'>오늘의 랜덤 추천 동아리</p>
+          <p className='text-[18px] font-bold py-4'>오늘의 랜덤 추천 동아리</p>
           <div className='flex gap-4'>
             <CategoryCard category="IT" hash='개발' clubName='UMC'/>
             <CategoryCard category="문화" hash='댄스' clubName='토네이도'/>

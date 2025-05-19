@@ -24,7 +24,7 @@ const IntroMain: React.FC = () => {
   return (
     <>
       <IntroButtons activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="w-full h-auto text-center">
+      <div className="w-full h-auto text-center px-50">
         {activeTab === 'intro' ? (
           <Accordion items={notices} />
         ) : (

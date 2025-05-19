@@ -6,7 +6,7 @@ import Footer from './footer';
 
 const Home: React.FC = () => {
   return (
-    <div className="w-[1440px] h-[1024px] mx-auto border-2 flex flex-col">
+    <div className="w-full h-screen flex flex-col">
       <NavBar />
       <Main />
       <Footer />

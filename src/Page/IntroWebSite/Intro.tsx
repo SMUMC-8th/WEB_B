@@ -8,9 +8,9 @@ const Intro: React.FC = () => {
 //   const [activeTab, setActiveTab] = useState('intro');
 
   return (
-    <div className="w-[1440px] h-[1024px] mx-auto border-2 flex flex-col">
+    <div className="w-full h-screen mx-auto flex flex-col">
       <Navbar />
-      <div className="flex-grow flex flex-col items-center justify-start mt-30">
+      <div className="w-full h-[75vh] flex-grow flex flex-col items-center justify-center gap-15">
         <IntroMain />
       </div>
       <Footer />
