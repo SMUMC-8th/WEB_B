@@ -2,9 +2,10 @@ import "./assets/styles/App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CalendarPage from "./Page/CalendarPage";
 import RootLayout from "./layout/RootLayout";
-import Home from "./Page/Home";
-import Intro from "./Page/Intro";
-import ClubIntroDetailPage from "./Page/ClubIntroDetailPage";
+import Home from "./Page/HomePage";
+import Intro from "./Page/IntroPage";
+import Info from "./Page/InfoPage";
+// import ClubIntroDetailPage from "./Page/ClubIntroDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/introWeb",
+        path: "/introweb",
         element: <Intro />,
       },
       {
@@ -25,9 +26,13 @@ const router = createBrowserRouter([
         element: <CalendarPage />,
       },
       {
-        path: "/clubintrodetail",
-        element: <ClubIntroDetailPage />,
+        path: "/infoweb",
+        element: <Info />,
       },
+      // {
+      //   path: "/clubintrodetail",
+      //   element: <ClubIntroDetailPage />,
+      // },
     ],
   },
 ]);

@@ -6,7 +6,7 @@ type TSearch = {
 
 const SearchBar = ({ categoryTitle }: TSearch) => {
   return (
-    <div className="flex items-center justify-center gap-4 my-12">
+    <div className="flex justify-center items-center my-8 gap-4">
       <input
         type="text"
         placeholder="원하시는 동아리명 혹은 관심분야를 검색하세요!"

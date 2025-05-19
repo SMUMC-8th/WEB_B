@@ -1,16 +1,17 @@
 import React from "react";
-import smu from "../assets/smu.svg"; // SVG를 경로로 불러오기
-import SearchBar from "../components/SearchBar"; // SearchBar 컴포넌트 import
-import CategoryCard from "../components/CategoryCard"; // CategoryCard 컴포넌트 import
+import smu from "../assets/images/smu.svg"; // SVG를 경로로 불러오기
+import SearchBar from "../components/Home/SearchBar"; // SearchBar 컴포넌트 import
+import CategoryCard from "../components/Home/CategoryCard"; // CategoryCard 컴포넌트 import
 
-const Home: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <div
-      className="flex flex-col items-center justify-center flex-grow w-full p-5 bg-center bg-no-repeat bg-cover"
+      className="w-full h-[75vh] bg-no-repeat bg-center bg-cover flex-grow 
+        flex flex-col items-center justify-center "
       style={{ backgroundImage: `url(${smu})` }}
     >
       <p
-        className="text-white text-[40px] font-extrabold"
+        className="text-white text-[32px] font-extrabold"
         style={{
           WebkitTextStroke: "1px black", // 글자 테두리
         }}
@@ -22,7 +23,7 @@ const Home: React.FC = () => {
       <SearchBar />
 
       <div>
-        <p className="text-[20px] font-bold py-4">오늘의 랜덤 추천 동아리</p>
+        <p className="text-[18px] font-bold py-4">오늘의 랜덤 추천 동아리</p>
         <div className="flex gap-4">
           <CategoryCard category="IT" hash="개발" clubName="UMC" />
           <CategoryCard category="문화" hash="댄스" clubName="토네이도" />
@@ -34,4 +35,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Main;
