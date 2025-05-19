@@ -1,6 +1,6 @@
 import IntroMain from "../components/Intro/IntroMain";
 
-const Intro: React.FC = () => {
+const IntroPage: React.FC = () => {
   //   const [activeTab, setActiveTab] = useState('intro');
 
   return (
@@ -10,4 +10,4 @@ const Intro: React.FC = () => {
   );
 };
 
-export default Intro;
+export default IntroPage;

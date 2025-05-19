@@ -2,10 +2,10 @@ import "./assets/styles/App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CalendarPage from "./Page/CalendarPage";
 import RootLayout from "./layout/RootLayout";
-import Home from "./Page/HomePage";
-import Intro from "./Page/IntroPage";
-import Info from "./Page/InfoPage";
-// import ClubIntroDetailPage from "./Page/ClubIntroDetailPage";
+import HomePage from "./Page/HomePage";
+import ClubListPage from "./Page/ClubListPage";
+import IntroPage from "./Page/IntroPage";
+import InfoPage from "./Page/InfoPage";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +15,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "/introweb",
-        element: <Intro />,
+        element: <IntroPage />,
+      },
+      {
+        path: "/clubintro",
+        element: <ClubListPage />,
       },
       {
         path: "/calendar",
@@ -27,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/infoweb",
-        element: <Info />,
+        element: <InfoPage />,
       },
       // {
       //   path: "/clubintrodetail",
@@ -44,46 +48,5 @@ function App() {
     </div>
   );
 }
-
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// import SearchBar from './Page/ClubIntro/components/SearchBar';
-// import SideBar from './Page/ClubIntro/SideBar';
-// import ClubListPage from './Page/ClubIntro/ClubListPage';
-
-// function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
-//     return (
-//         <>
-//             <SearchBar categoryTitle="카테고리" />
-//             <div className="flex">
-//                 <SideBar />
-//                 {children}
-//             </div>
-//         </>
-//     );
-// }
-
-// function AppRoutes() {
-//     return (
-//         <Routes>
-//             <Route
-//                 path="/clubintro"
-//                 element={
-//                     <LayoutWithSidebar>
-//                         <ClubListPage />
-//                     </LayoutWithSidebar>
-//                 }
-//             />
-//         </Routes>
-//     );
-// }
-
-// function App() {
-//     return (
-//         <Router>
-//             <AppRoutes />
-//         </Router>
-//     );
-// }
 
 export default App;

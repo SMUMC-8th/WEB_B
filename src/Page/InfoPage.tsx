@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 import InfoMain from "../components/Info/InfoMain";
 
-const Info: React.FC = () => {
+const InfoPage: React.FC = () => {
   //   const [activeTab, setActiveTab] = useState('intro');
 
   return (
@@ -11,4 +11,4 @@ const Info: React.FC = () => {
   );
 };
 
-export default Info;
+export default InfoPage;
