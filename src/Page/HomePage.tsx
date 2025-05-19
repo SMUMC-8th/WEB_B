@@ -3,7 +3,7 @@ import smu from "../assets/images/smu.svg"; // SVG를 경로로 불러오기
 import SearchBar from "../components/Home/SearchBar"; // SearchBar 컴포넌트 import
 import CategoryCard from "../components/Home/CategoryCard"; // CategoryCard 컴포넌트 import
 
-const Main: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div
       className="w-full h-[75vh] bg-no-repeat bg-center bg-cover flex-grow 
@@ -35,4 +35,4 @@ const Main: React.FC = () => {
   );
 };
 
-export default Main;
+export default HomePage;

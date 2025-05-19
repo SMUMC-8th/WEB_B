@@ -2,10 +2,10 @@ import "./assets/styles/App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CalendarPage from "./Page/CalendarPage";
 import RootLayout from "./layout/RootLayout";
-import Home from "./Page/HomePage";
-import Intro from "./Page/IntroPage";
-import Info from "./Page/InfoPage";
-// import ClubIntroDetailPage from "./Page/ClubIntroDetailPage";
+import HomePage from "./Page/HomePage";
+import ClubListPage from "./Page/ClubListPage";
+import IntroPage from "./Page/IntroPage";
+import InfoPage from "./Page/InfoPage";
 
 const router = createBrowserRouter([
   {
@@ -15,11 +15,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "/introweb",
-        element: <Intro />,
+        element: <IntroPage />,
+      },
+      {
+        path: "/clubintro",
+        element: <ClubListPage />,
       },
       {
         path: "/calendar",
@@ -27,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/infoweb",
-        element: <Info />,
+        element: <InfoPage />,
       },
       // {
       //   path: "/clubintrodetail",
