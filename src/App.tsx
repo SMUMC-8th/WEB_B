@@ -12,6 +12,7 @@ import {
 import CalendarPage from "./Page/CalendarPage";
 import RootLayout from "./layout/RootLayout";
 import Home from "./Page/Home";
+import Intro from "./Page/Intro";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/introWeb",
+        element: <Intro />,
       },
       {
         path: "/calendar",
