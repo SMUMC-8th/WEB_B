@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import { FaSearch } from "react-icons/fa";
 import "react-big-calendar/lib/css/react-big-calendar.css"; // 스타일시트 가져오기
-import "./Calendar.css";
+import "../assets/styles/Calendar.css";
 
 // moment 로케일라이저 설정
 const localizer = momentLocalizer(moment);
@@ -62,59 +62,59 @@ function CalendarPage() {
   };
 
   return (
-    <article className="w-screen h-screen px-10 pb-10 flex flex-col justify-center items-center">
+    <article className="flex flex-col items-center justify-center flex-grow w-screen px-40 pb-10">
       {/* 임시 article tag */}
-      <article className="w-[80%] h-[60%]">
-        <div className="w-full flex justify-between items-center py-5 px-4">
-          {/* 왼쪽 빈 공간 (중앙 정렬을 위한) */}
-          <div className="w-1/4 xl:w-1/5 sm:w-1/4 hidden sm:block"></div>
+      {/* <article className="w-[80%] h-[80%]"> */}
+      <div className="flex items-center justify-between w-full px-4 py-5">
+        {/* 왼쪽 빈 공간 (중앙 정렬을 위한) */}
+        <div className="hidden w-1/4 xl:w-1/5 sm:w-1/4 sm:block"></div>
 
-          {/* 월 이동 중앙 네비 */}
-          <div className="flex justify-center items-center font-bold md:text-2xl sm:text-xl text-lg text-blue-950">
-            <button
-              onClick={goToPrevMonth}
-              className="border-none bg-transparent cursor-pointer text-xl md:text-lg sm:text-base px-4 md:px-3 sm:px-2"
-            >
-              ❮ {/* 왼쪽 꺽쇠 이전 달 이동 */}
-            </button>
-            <span>{formatMonthYear(currentDate)}</span>
-            <button
-              onClick={goToNextMonth}
-              className="border-none bg-transparent cursor-pointer text-xl md:text-lg sm:text-base px-4 md:px-3 sm:px-2"
-            >
-              ❯ {/* 오른쪽 꺽쇠 다음 달 이동 */}
-            </button>
-          </div>
-
-          {/* 우측 검색 입력 및 버튼 */}
-          <form className="flex items-center w-1/4 xl:w-1/5 d:w-1/4 justify-end">
-            <input
-              type="text"
-              placeholder="동아리명"
-              className="w-full max-w-xs flex-grow min-w-0 border-2 border-blue-950 bg-slate-300 rounded-2xl px-3 py-1 text-sm text-blue-950 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-            <button
-              type="submit"
-              className="flex-shrink-0 ml-1 border-2 border-blue-950 bg-slate-300 rounded-2xl p-1 text-sm hover:bg-indigo-700 transition flex items-center justify-center"
-            >
-              <FaSearch size={16} className="mx-2 size-5" color="#fed86e" />
-            </button>
-          </form>
+        {/* 월 이동 중앙 네비 */}
+        <div className="flex items-center justify-center text-lg font-bold md:text-2xl sm:text-xl text-blue-950">
+          <button
+            onClick={goToPrevMonth}
+            className="px-4 text-xl bg-transparent border-none cursor-pointer md:text-lg sm:text-base md:px-3 sm:px-2"
+          >
+            ❮ {/* 왼쪽 꺽쇠 이전 달 이동 */}
+          </button>
+          <span>{formatMonthYear(currentDate)}</span>
+          <button
+            onClick={goToNextMonth}
+            className="px-4 text-xl bg-transparent border-none cursor-pointer md:text-lg sm:text-base md:px-3 sm:px-2"
+          >
+            ❯ {/* 오른쪽 꺽쇠 다음 달 이동 */}
+          </button>
         </div>
 
-        <Calendar
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          className="w-full h-[50vh]"
-          views={["month"]}
-          defaultView="month"
-          date={currentDate} // 현재 보여줄 날짜 설정
-          toolbar={false} // 기본 툴바 숨기기
-          dayPropGetter={dayPropGetter} // 현재 날짜 스타일링
-        />
-      </article>
+        {/* 우측 검색 입력 및 버튼 */}
+        <form className="flex items-center justify-end w-1/4 xl:w-1/5 d:w-1/4">
+          <input
+            type="text"
+            placeholder="동아리명"
+            className="flex-grow w-full max-w-xs min-w-0 px-3 py-1 text-sm border-2 border-blue-950 bg-slate-300 rounded-2xl text-blue-950 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+          <button
+            type="submit"
+            className="flex items-center justify-center flex-shrink-0 p-1 ml-1 text-sm transition border-2 border-blue-950 bg-slate-300 rounded-2xl hover:bg-indigo-700"
+          >
+            <FaSearch size={16} className="mx-2 size-5" color="#fed86e" />
+          </button>
+        </form>
+      </div>
+
+      <Calendar
+        localizer={localizer}
+        events={events}
+        startAccessor="start"
+        endAccessor="end"
+        className="w-full h-[50vh]"
+        views={["month"]}
+        defaultView="month"
+        date={currentDate} // 현재 보여줄 날짜 설정
+        toolbar={false} // 기본 툴바 숨기기
+        dayPropGetter={dayPropGetter} // 현재 날짜 스타일링
+      />
+      {/* </article> */}
     </article>
   );
 }
