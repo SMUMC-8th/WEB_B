@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="relative w-full h-[150px] bg-white text-black flex justify-between items-center px-4 px-16 group">
+    <nav className="relative w-full h-[15%] bg-white text-black flex justify-between items-center px-4 px-16 group">
       <img
         src={logo}
         alt="Logo"
