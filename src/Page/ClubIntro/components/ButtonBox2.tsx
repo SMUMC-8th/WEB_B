@@ -1,27 +1,27 @@
-// type TButton2 = {
-//     iconSrc: string;
-//     label: string;
-//     cardWidth?: number;
-//     cardHeight?: number;
-// };
+type TButton = {
+    iconSrc: string;
+    label: string;
+    iconWidth?: number;
+    iconHeight?: number;
+};
 
-// const ButtonBox2 = ({
-//     iconSrc,
-//     label,
-//     cardWidth = 90,
-//     cardHeight = 90,
-// }: TButton2) => {
-//     return (
-//         <button className="w-[220px] h-[220px] radius-[30px] padding-[20px] bg-[#002F6C33] flex w flex-col gap-10 font-Pretendard hover:border-2 border-[#002F6C] shadow-inner">
-//             <img
-//                 src={iconSrc}
-//                 alt={label}
-//                 style={{ width: cardWidth, height: cardHeight }}
-//                 className="mt-3"
-//             />
-//             {label}
-//         </button>
-//     );
-// };
+const ButtonBox2 = ({
+    iconSrc,
+    label,
+    iconWidth = 30,
+    iconHeight = 30,
+}: TButton) => {
+    return (
+        <button className="w-[80px] h-[80px] rounded-2xl bg-[#CFD1CC] flex items-center flex-col gap-2 font-Pretendard hover:border-2 border-[#002F6C] shadow-inner">
+            <img
+                src={iconSrc}
+                alt={label}
+                style={{ width: iconWidth, height: iconHeight }}
+                className="mt-3"
+            />
+            {label}
+        </button>
+    );
+};
 
-// export default ButtonBox2;
+export default ButtonBox2;
