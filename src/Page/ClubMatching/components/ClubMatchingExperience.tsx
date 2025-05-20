@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import SelectBox from "../components/SelectBox";
-import ClubMatchingHeader from "../components/ClubMatchingHeader";
-import { useNavigate } from "react-router-dom";
+import SelectBox from "./SelectBox";
+// import ClubMatchingHeader from "../components/ClubMatchingHeader";
 
 const options = ["자기 성장 & 진로", "창작 & 표현", "교류 & 여가", "사회 & 가치 활동"];
 
-const ClubMatchingExperience = () => {
+const ClubMatchingExperience = ({onNext}: {onNext:()=>void}) => {
   const [selected, setSelected] = useState<string | null>(null);
   const [showError, setShowError] = useState(false);
   const [hasSubmit, setHasSubmit] = useState(false);
-  const navigate = useNavigate();
 
   const toggleOption = (option: string) => {
     setSelected(prev=>(prev===option?null:option));
@@ -23,7 +21,7 @@ const ClubMatchingExperience = () => {
     else{
         setShowError(false);
         console.log("선택된 옵션:", selected);
-        navigate("/clubmatching/activityformat");
+        onNext();
     }
   };
 
@@ -34,7 +32,7 @@ const ClubMatchingExperience = () => {
 
   return (
     <div className="flex flex-col gap-6 justify-center items-center">
-        <ClubMatchingHeader/>
+        {/* <ClubMatchingHeader/> */}
       <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6 leading-relaxed">
         동아리 활동에서 어떤 방향의 경험을 기대하시나요?
       </h1>

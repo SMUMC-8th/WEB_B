@@ -1,16 +1,27 @@
+import { useQuery } from '@tanstack/react-query';
+// import { FetchClubDetail } from './apis/FetchClubDetail';
 import './ClubDetailCard.css'
 import ImageSlider from './components/ImageSlider';
 import { TClubDetail } from './types/ClubDetail';
+import { fetchMockClubDetail } from './apis/mock';
 
-const ClubDetailCard=({
-    title,
-    description,
-    target,
-    duration,
-    method,
-    activity,
-    link,
-}: TClubDetail)=>{
+const ClubDetailCard=()=>{
+    const {data, isLoading, error}=useQuery<TClubDetail>({
+        queryKey:['clubDetail'],
+        // queryFn:FetchClubDetail,
+        queryFn:fetchMockClubDetail,
+});
+
+    if(isLoading){
+        return <div className='p-10'>로딩 중......</div>
+    }
+
+    if(error||!data){
+        console.log(error);
+        return <div className='p-10'>에러가 발생했습니다.</div>
+    }
+
+
     return(
         <div className='flex px-[100px] pt-[100px] pl-[150px] gap-[64px]'>
             <ImageSlider/>
@@ -18,15 +29,15 @@ const ClubDetailCard=({
                 <img></img>
             </div> */}
                 <div className='flex flex-col justify-start'>
-                    <h3 className='text-2xl pb-2 font-bold border-b-2 border-black mb-4'>{title}</h3>
+                    <h3 className='text-2xl pb-2 font-bold border-b-2 border-black mb-4'>{data!.title}</h3>
                     
-                        <p className='text-base mb-6 leading-relaxed font-bold'>{description}</p>
+                        <p className='text-base mb-6 leading-relaxed font-bold'>{data!.description}</p>
                         <ul className='space-y-2 text-sm'>
-                            <li>모집 대상: {target}</li>
-                            <li>모집 기간: {duration}</li>
-                            <li>모집 방법: {method}</li>
-                            <li>주요 활동: {activity}</li>
-                            <li>FAQ 및 관련 링크: {link}</li>
+                            <li>모집 대상: {data!.target}</li>
+                            <li>모집 기간: {data!.duration}</li>
+                            <li>모집 방법: {data!.method}</li>
+                            <li>주요 활동: {data!.activity}</li>
+                            <li>FAQ 및 관련 링크: {data!.link}</li>
                         </ul>
                     
                 </div> 

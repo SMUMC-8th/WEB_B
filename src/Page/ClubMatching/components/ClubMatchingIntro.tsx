@@ -1,7 +1,4 @@
-import { useNavigate } from "react-router-dom";
-
-const ClubMatchingIntro=()=>{
-    const navigate = useNavigate();
+const ClubMatchingIntro=({onNext}: {onNext:()=>void})=>{
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
@@ -13,7 +10,7 @@ const ClubMatchingIntro=()=>{
                 동아리 매칭을 통해 사용자가 답변한 내용을 기반으로 <br/> 자동으로 해당하는 동아리를 추천합니다!
             </p>
             <button className="px-20 py-4 bg-[#002F6C] text-white text-lg font-bold rounded-2xl hover:bg-[#FFD86E] hover:shadow-inner transition"
-                onClick={()=>navigate("/clubmatching/experience")}
+                onClick={onNext}
             >
                 동아리 매칭 시작
             </button>

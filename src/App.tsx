@@ -7,11 +7,7 @@ import {
 import SearchBar from "./Page/ClubIntroDetail/components/SearchBar";
 import SideBar from "./Page/ClubIntroDetail/SideBar";
 import ClubDetailCard from "./Page/ClubIntroDetail/ClubDetailCard";
-import ClubMatchingIntro from "./Page/ClubMatching/pages/ClubMatchingIntro";
-import ClubMatchingExperience from "./Page/ClubMatching/pages/ClubMatchingExperience";
-import ClubMatchingActivityFormat from "./Page/ClubMatching/pages/ClubMatchingActivityFormat";
-import ClubMatchingRecruitMethod from "./Page/ClubMatching/pages/ClubMatchingRecruitMethod";
-import ClubMatchingResult from "./Page/ClubMatching/pages/ClubMatchingResult";
+import ClubMatching from "./Page/ClubMatching/pages/ClubMatching";
 
 function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
   return (
@@ -45,11 +41,7 @@ function AppRoutes() {
           </LayoutWithSidebar>
         }
       />
-      <Route path="/clubmatching" element={<ClubMatchingIntro />} />
-      <Route path="/clubmatching/experience" element={<ClubMatchingExperience />} />
-      <Route path="/clubmatching/activityformat" element={<ClubMatchingActivityFormat />} />
-      <Route path="/clubmatching/recruitmethod" element={<ClubMatchingRecruitMethod />} />
-      <Route path="/clubmatching/result" element={<ClubMatchingResult />} />
+      <Route path='/clubmatching' element={<ClubMatching />} />
     </Routes>
   );
 }
