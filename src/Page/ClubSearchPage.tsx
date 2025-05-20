@@ -1,7 +1,7 @@
 // ClubListPage.tsx
-import Tags from "../components/result/Tags";
+import Tags from "../components/ClubSearch/Tags";
 // import Card from '../components/ClubList/Card';
-import NoResult from "../components/result/NoResult";
+import NoResult from "../components/ClubSearch/NoResult";
 import SearchBar from "../components/ClubList/SearchBar";
 import SideBar from "../components/SideBar";
 import { useState } from "react";
