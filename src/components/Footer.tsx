@@ -10,3 +10,21 @@ const Footer: React.FC = () => {
 };
 
 export default Footer;
+
+// import footer from '../assets/images/footer.svg';
+
+// const Footer: React.FC = () => {
+//     return (
+//         <div className="absolute left-[1030px] top-[960px] justify-center w-[300px] h-[150px]">
+//             <a
+//                 href="https://github.com/SMUMC-8th"
+//                 target="_blank"
+//                 rel="noopener noreferrer"
+//             >
+//                 <img src={footer} alt="Logo" className="w-auto h-auto" />
+//             </a>
+//         </div>
+//     );
+// };
+
+// export default Footer;
