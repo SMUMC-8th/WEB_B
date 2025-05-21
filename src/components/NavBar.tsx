@@ -29,12 +29,12 @@ const NavBar: React.FC = () => {
               </Link>
             </li>
             <li className="flex-1 text-center">
-              <a
-                href="clubmatching"
+              <Link
+                to={"/clubmatching"}
                 className="text-[18px] font-semibold hover:text-gray-400"
               >
                 동아리 매칭
-              </a>
+              </Link>
             </li>
             <li className="flex-1 text-center">
               <Link
