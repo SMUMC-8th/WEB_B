@@ -57,18 +57,18 @@ const NavBar: React.FC = () => {
           <div className="absolute left-0 top-full w-full shadow-lg z-50 bg-white rounded-b-3xl hidden group-hover:flex">
             <ul className="flex w-full py-6 text-[18px] font-medium">
               <li className="flex-1 flex flex-col gap-2 items-center py-3">
-                <a
-                  href="#category1"
+                <Link
+                  to="/introweb/intro"
                   className="text-[18px] text-black hover:text-gray-600"
                 >
                   소개
-                </a>
-                <a
-                  href="#category1"
+                </Link>
+                <Link
+                  to="/introweb/guide"
                   className="text-[18px] text-black hover:text-gray-600"
                 >
                   이용안내
-                </a>
+                </Link>
               </li>
               <li className="flex-1 flex flex-col gap-2 items-center">
                 <a
@@ -99,19 +99,18 @@ const NavBar: React.FC = () => {
               <li className="flex-1"></li>
               <li className="flex-1"></li>
               <li className="flex-1 flex flex-col gap-2 items-center">
-                <a
-                  href="#category5"
-                  className="text-[16px] text-black hover:text-gray-600"
+                <Link
+                  to="/infoweb/notice"
+                  className="text-[18px] text-black hover:text-gray-600"
                 >
                   공지사항
-                </a>
-
-                <a
-                  href="#category5"
-                  className="text-[16px] text-black hover:text-gray-600"
+                </Link>
+                <Link
+                  to="/infoweb/qna"
+                  className="text-[18px] text-black hover:text-gray-600"
                 >
                   자주 묻는 질문
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

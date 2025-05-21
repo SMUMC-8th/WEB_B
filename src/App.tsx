@@ -24,23 +24,14 @@ const router = createBrowserRouter([
         element: <IntroPage />,
       },
       {
+        path: "/introweb/:tab",
+        element: <IntroPage />,
+      },
+      {
         path: "/clubintro",
         element: <ClubListPage />,
       },
-      // {
-      //   path: "/clubintrodetail",
-      //   element: (
-      //     <ClubDetailCard
-      //       title="동아리명"
-      //       description="동아리 소개"
-      //       target="대상"
-      //       duration="기간"
-      //       method="방법"
-      //       activity="활동"
-      //       link="링크"
-      //     />
-      //   ),
-      // },
+ 
       {
         path: "/clubmatching",
         element: <ClubMathcing />,
@@ -58,13 +49,14 @@ const router = createBrowserRouter([
         element: <InfoPage />,
       },
       {
+        path: "/infoweb/:tab",
+        element: <InfoPage />,
+      },
+      {
         path: "/clubsearch",
         element: <ClubSearchPage />,
       },
-      // {
-      //   path: "/clubintrodetail",
-      //   element: <ClubIntroDetailPage />,
-      // },
+
     ],
   },
 ]);

@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import IntroButtons from "./IntroButtons";
 import CardSection from "./CardSection";
+import { useParams } from "react-router-dom";
 
 const IntroMain: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("intro");
+  const { tab } = useParams();
+  const [activeTab, setActiveTab] = useState(tab || "intro");
+
+  useEffect(() => {
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [tab]);
 
   return (
     <>
