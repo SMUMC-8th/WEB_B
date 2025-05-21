@@ -61,8 +61,13 @@ function CalendarPage() {
     return {};
   };
 
+  // 날짜 변경 핸들러 추가
+  const handleNavigate = (newDate: Date) => {
+    setCurrentDate(newDate);
+  };
+
   return (
-    <article className="flex flex-col items-center justify-center flex-grow w-screen px-40 pb-10">
+    <article className="flex flex-col items-center justify-center flex-grow w-screen h-full px-40 pb-10">
       {/* 임시 article tag */}
       {/* <article className="w-[80%] h-[80%]"> */}
       <div className="flex items-center justify-between w-full px-4 py-5">
@@ -102,19 +107,21 @@ function CalendarPage() {
         </form>
       </div>
 
-      <Calendar
-        localizer={localizer}
-        events={events}
-        startAccessor="start"
-        endAccessor="end"
-        className="w-full h-[50vh]"
-        views={["month"]}
-        defaultView="month"
-        date={currentDate} // 현재 보여줄 날짜 설정
-        toolbar={false} // 기본 툴바 숨기기
-        dayPropGetter={dayPropGetter} // 현재 날짜 스타일링
-      />
-      {/* </article> */}
+      <div className="w-full flex-1">
+        <Calendar
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          style={{ height: "100%" }}
+          views={["month"]}
+          defaultView="month"
+          date={currentDate}
+          onNavigate={handleNavigate}
+          toolbar={false}
+          dayPropGetter={dayPropGetter}
+        />
+      </div>
     </article>
   );
 }
