@@ -9,6 +9,8 @@ export const fetchMatchedClubs = async (
 };
 
 export const umcServerNoAuth = axios.create({
-  baseURL: `${import.meta.env.VITE_SERVER}`,
-  timeout: 1000,
+  baseURL: "/api",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });

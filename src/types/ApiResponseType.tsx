@@ -7,7 +7,7 @@ type ClubSchedule = {
   secondEnd: string;
 };
 
-export type ApiResponse = {
+export type ApiCalendarResponse = {
   success: boolean;
   code: string;
   message: string;
