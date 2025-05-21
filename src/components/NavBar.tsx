@@ -30,7 +30,7 @@ const NavBar: React.FC = () => {
             </li>
             <li className="flex-1 text-center">
               <a
-                href="#clubMatch"
+                href="clubmatching"
                 className="text-[18px] font-semibold hover:text-gray-400"
               >
                 동아리 매칭

@@ -81,7 +81,6 @@
 
 import Card from "../components/ClubList/Card";
 import SearchBar from "../components/ClubList/SearchBar";
-import Footer from "../components/Footer";
 import SideBar from "../components/SideBar";
 
 const clubData = [
@@ -139,14 +138,14 @@ const ClubListPage = () => {
   return (
     <>
       <SearchBar categoryTitle="카테고리" />
-      <div className="flex flex-col lg:flex-row">
+      <div className="w-full h-full flex flex-col lg:flex-row">
         {/* 사이드바 - 넓은 화면에서만 보이게 */}
         <div className="hidden lg:block w-full lg:w-[200px]">
           <SideBar />
         </div>
 
         {/* 카드 리스트 */}
-        <div className="flex-1 p-4 sm:p-6 md:p-8 lg:p-10">
+        <div className="p-4 sm:p-6 md:p-8 lg:p-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
             {clubData.map((club, idx) => (
               <Card
