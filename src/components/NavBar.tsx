@@ -71,30 +71,30 @@ const NavBar: React.FC = () => {
                 </Link>
               </li>
               <li className="flex-1 flex flex-col gap-2 items-center">
-                <a
-                  href="#category2"
-                  className="text-[18px] text-black hover:text-gray-600"
-                >
-                  학술
-                </a>
-                <a
-                  href="#category2"
-                  className="text-[18px] text-black hover:text-gray-600"
-                >
-                  예술
-                </a>
-                <a
-                  href="#category2"
-                  className="text-[18px] text-black hover:text-gray-600"
-                >
-                  동아리
-                </a>
-                <a
-                  href="#category2"
-                  className="text-[18px] text-black hover:text-gray-600"
-                >
-                  종교
-                </a>
+                  <Link
+                    to="/clubintro/academy"
+                    className="text-[18px] text-black hover:text-gray-600"
+                  >
+                    학술
+                  </Link>
+                  <Link
+                    to="/clubintro/arts"
+                    className="text-[18px] text-black hover:text-gray-600"
+                  >
+                    예술
+                  </Link>
+                  <Link
+                    to="/clubintro/sports"
+                    className="text-[18px] text-black hover:text-gray-600"
+                  >
+                    스포츠
+                  </Link>
+                  <Link
+                    to="/clubintro/spirit"
+                    className="text-[18px] text-black hover:text-gray-600"
+                  >
+                    종교
+                  </Link>
               </li>
               <li className="flex-1"></li>
               <li className="flex-1"></li>

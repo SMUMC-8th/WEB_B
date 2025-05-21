@@ -31,6 +31,10 @@ const router = createBrowserRouter([
         path: "/clubintro",
         element: <ClubListPage />,
       },
+      {
+        path: "/clubintro/:tab",
+        element: <ClubListPage />,
+      },
  
       {
         path: "/clubmatching",
