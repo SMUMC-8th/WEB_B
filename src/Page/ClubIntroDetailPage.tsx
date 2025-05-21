@@ -1,20 +1,8 @@
 import ClubDetailCard from "../components/ClubIntroDetail/ClubDetailCard";
 import SearchBar from "../components/ClubIntroDetail/SearchBar";
-import SideBar from "../components/ClubIntroDetail/SideBar";
+import SideBar from "../components/SideBar";
 
 const ClubIntroDetail = () => {
-  function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
-    return (
-      <>
-        <SearchBar categoryTitle="카테고리" />
-        <div className="flex">
-          <SideBar />
-          {children}
-        </div>
-      </>
-    );
-  }
-
   return (
     <>
       <SearchBar categoryTitle="카테고리" />
