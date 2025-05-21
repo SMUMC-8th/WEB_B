@@ -19,3 +19,27 @@ export type CalendarEvent = {
   start: Date;
   end: Date;
 };
+
+
+export type CategoryCardProps = {
+  category: string;
+  hash: string;
+  clubName: string;
+  imageUrl?: string;
+};
+
+export interface Club {
+  clubId: number;
+  name: string;
+  imageUrl: string;
+  description: string;
+  category: string;
+  hashtags: string[];
+}
+
+export type ApiResponse = {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: Club[];
+};
