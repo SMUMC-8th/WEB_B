@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({
     description,
 }) => {
     return (
-        <div className="w-[200px] h-[220px] bg-[#002F6C33] text-black rounded-2xl p-3 relative top-[50px] left-[126px] justify-between hover:border-2 border-[#002F6C] shadow-inner">
+        <div className="w-[220px] h-[220px] bg-[#002F6C33] text-black rounded-2xl p-3 relative top-[50px] left-[126px] justify-between border-2 border-transparent hover:border-[#002F6C] shadow-inner">
             {/* 썸네일 이미지 */}
             {imageUrl && (
                 <img
@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({
                 ))}
             </span> */}
             {/* 태그 */}
-            <div className="absolute top-5 right-5 flex flex-col justify-start items-end w-[70px] h-[93px] gap-[9px]">
+            <div className="absolute top-5 right-3 flex flex-col justify-start items-end w-[70px] h-[93px] gap-[9px]">
                 {tags.map((tag, index) => (
                     <button
                         key={index}
