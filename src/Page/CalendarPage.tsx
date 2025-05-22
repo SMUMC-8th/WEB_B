@@ -5,85 +5,54 @@ import { FaSearch } from "react-icons/fa";
 import "react-big-calendar/lib/css/react-big-calendar.css"; // 스타일시트 가져오기
 import "../assets/styles/Calendar.css";
 import { umcServerNoAuth } from "../utils/axios";
-import { ApiCalendarResponse, CalendarEvent } from "../types/ApiResponseType";
+import {
+  ApiCalendarResponse,
+  CalendarEvent,
+  CLUB_NAME_TO_ID,
+  CLUB_ID_TO_NAME,
+} from "../types/CalendarPageType";
 
 // moment 로케일라이저 설정
 const localizer = momentLocalizer(moment);
-
-const CLUB_NAME_TO_ID: { [key: string]: number } = {
-  굿네이버스: 1,
-  가온누리: 1,
-  상냥행: 2,
-  상명또래상담: 3,
-  에듀플릿: 4,
-  이니로: 5,
-  체인지: 6,
-  MOMENTUM: 7,
-  모멘텀: 7,
-  UMC: 8,
-  맹가미: 9,
-  발틱: 10,
-  소리마을: 11,
-  얘놀: 12,
-  "어우러짐 흥": 13,
-  자하포토: 14,
-  토네이도: 15,
-  프리에: 16,
-  허밍: 17,
-  "Groovin'187": 18,
-  그루빈187: 18,
-  자하랑: 19,
-  테슬라: 20,
-  BUCKS: 21,
-  벅스: 21,
-  IEMU11: 22,
-  WINNER: 23,
-  위너: 23,
-  "S.W.E.A.T": 24,
-  "S.U.V": 25,
-  CCC: 26,
-  IVF: 27,
-};
 
 function CalendarPage() {
   // 현재 날짜를 상태로 관리
   const [currentDate, setCurrentDate] = useState(new Date());
   const [events, setEvents] = useState<CalendarEvent[]>([]);
   const [searchQuery, setSearchQuery] = useState<number>(1);
-  const [searchInput, setSearchInput] = useState<string>("가온누리");
 
   const fetchClubSchedule = async (clubId: number) => {
-    // try {
-    const response = await umcServerNoAuth.get<ApiCalendarResponse>(
-      `/clubs/calendar/${clubId}`
-    );
+    try {
+      const response = await umcServerNoAuth.get<ApiCalendarResponse>(
+        `/clubs/calendar/${clubId}`
+      );
 
-    if (!!response.data) {
-      const schedule = response.data.result;
-      const newEvents: CalendarEvent[] = [];
+      if (!!response.data) {
+        const schedule = response.data.result;
+        const newEvents: CalendarEvent[] = [];
+        const clubName = CLUB_ID_TO_NAME[clubId];
 
-      // 상반기 일정 추가
-      newEvents.push({
-        title: `[${schedule.name}] 모집 기간`,
-        start: new Date(schedule.firstStart),
-        end: new Date(schedule.firstEnd),
-      });
-
-      // 하반기 일정이 상반기와 다른 경우에만 추가
-      if (!!schedule.secondStart && !!schedule.firstEnd) {
+        // 상반기 일정 추가
         newEvents.push({
-          title: `[${schedule.name}] 모집 기간`,
-          start: new Date(schedule.secondStart),
-          end: new Date(schedule.secondEnd),
+          title: `[${clubName}] 모집 기간`,
+          start: new Date(schedule.firstStart),
+          end: new Date(schedule.firstEnd),
         });
-      }
 
-      setEvents(newEvents);
+        // 하반기 일정이 상반기와 다른 경우에만 추가
+        if (!!schedule.secondStart && !!schedule.firstEnd) {
+          newEvents.push({
+            title: `[${clubName}] 모집 기간`,
+            start: new Date(schedule.secondStart),
+            end: new Date(schedule.secondEnd),
+          });
+        }
+
+        setEvents(newEvents);
+      }
+    } catch (error) {
+      console.error("Failed to fetch club schedule:", error);
     }
-    // }
-    // catch (error) {
-    //   console.error("Failed to fetch club schedule:", error);
-    // }
   };
 
   useEffect(() => {
@@ -145,7 +114,6 @@ function CalendarPage() {
       const clubId = CLUB_NAME_TO_ID[searchValue];
       if (clubId) {
         setSearchQuery(clubId);
-        setSearchInput(searchValue);
       } else {
         alert("존재하지 않는 동아리명입니다.");
       }
@@ -185,7 +153,6 @@ function CalendarPage() {
           <input
             type="text"
             placeholder="동아리명"
-            defaultValue={searchInput}
             className="flex-grow w-full max-w-xs min-w-0 px-3 py-1 text-sm border-2 border-blue-950 bg-slate-300 rounded-2xl text-blue-950 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <button

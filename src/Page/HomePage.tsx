@@ -4,10 +4,9 @@ import star from "../assets/images/star.svg"; // SVG를 경로로 불러오기
 import SearchBar from "../components/Home/SearchBar"; // SearchBar 컴포넌트 import
 import CategoryCard from "../components/Home/CategoryCard"; // CategoryCard 컴포넌트 import
 import axios from "axios";
-import { Club, ApiResponse } from "../types/ApiResponseType"; // ApiResponseType import
+import { Club, ApiResponseClub } from "../types/ApiResponseType"; // ApiResponseType import
 // @ts-ignore
-import '@fontsource/gugi'; // Gugi 폰트 import해야하는데 ts-ignore로 무시해야해서 일단 추가해놨어요
-
+import "@fontsource/gugi"; // Gugi 폰트 import해야하는데 ts-ignore로 무시해야해서 일단 추가해놨어요
 
 const HomePage: React.FC = () => {
   const [clubs, setClubs] = useState<Club[]>([]);
@@ -16,12 +15,12 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchClubs = async () => {
       try {
-        const response = await axios.get<ApiResponse>("/api/"); // 실제 API 주소로 변경
+        const response = await axios.get<ApiResponseClub>("/api/"); // 실제 API 주소로 변경
         if (response.data.isSuccess) {
           setClubs(response.data.result);
         }
       } catch (error) {
-        console.error('Error fetching clubs:', error);
+        console.error("Error fetching clubs:", error);
       } finally {
         setIsLoading(false);
       }
@@ -52,23 +51,27 @@ const HomePage: React.FC = () => {
 
       <div>
         <div className="flex items-center gap-1">
-          <img src={star} alt="Random 추천 동아리" className="w-8"/>
-          <p className="text-[22px] font-bold py-4 text-blue-950">랜덤 추천 동아리</p>
+          <img src={star} alt="Random 추천 동아리" className="w-8" />
+          <p className="text-[22px] font-bold py-4 text-blue-950">
+            랜덤 추천 동아리
+          </p>
         </div>
         <div className="flex gap-4">
           {isLoading ? (
             <p>로딩 중...</p>
           ) : (
-            clubs.map((club) => (
-              <CategoryCard
-                key={club.clubId}
-                category={club.category}
-                hash={club.hashtags?.[0] || ""}
-                clubName={club.name}
-                imageUrl={club.imageUrl}
+            clubs.map(
+              (club) => (
+                <CategoryCard
+                  key={club.clubId}
+                  category={club.category}
+                  hash={club.hashtags?.[0] || ""}
+                  clubName={club.name}
+                  imageUrl={club.imageUrl}
                 />
-          ) // 동아리 카드 컴포넌트
-          ))}
+              ) // 동아리 카드 컴포넌트
+            )
+          )}
         </div>
       </div>
     </div>
