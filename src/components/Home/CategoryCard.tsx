@@ -1,23 +1,18 @@
-import jopeng from "../../assets/images/jopeng.jpg"; // SVG를 경로로 불러오기
+import { CategoryCardProps } from "../../types/ApiResponseType";
 
-type Props = {
-  category: string;
-  hash: string;
-  clubName: string;
-};
-
-const CategoryCard = ({ category, hash, clubName }: Props) => {
+const CategoryCard = ({ category, hash, clubName, imageUrl }: CategoryCardProps) => {
   return (
-    <div className="w-[160px] h-auto bg-white bg-opacity-30 rounded-lg shadow-md px-3 py-3 flex flex-col justify-center items-center backdrop-blur-sm">
+    <div className="w-[180px] h-auto bg-white bg-opacity-30 rounded-lg shadow-md px-3 py-3 flex flex-col justify-between items-center backdrop-blur-sm">
       <p className="text-[16px] font-semibold mb-2">{category}</p>
       <img
-        src={jopeng}
+        src={imageUrl || "default-image-url.jpg"}
         alt="clubImg"
         className="w-full h-[100px] py-2 object-cover rounded-md"
       />
-      <p className="text-[14px] mb-2">#{hash}</p>
-      <p className="font-semibold text-gray-700">{clubName}</p>
-      <button className="text-xs mt-2 text-blue-700">더보기 &gt;</button>
+      <p className="font-semibold text-[18px] text-gray-700 w-full text-center">
+        <span className="block w-full truncate">{clubName}</span>
+      </p>
+      <p className="text-[14px] mt-3 bg-blue-950 rounded-2xl px-2 text-amber-200">{hash}</p>
     </div>
   );
 };

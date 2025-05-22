@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import IntroButtons from "./InfoButtons";
 import Accordion from "./Accordion";
 
 const InfoMain: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("intro");
+  const { tab } = useParams();
+  const [activeTab, setActiveTab] = useState(tab || "notice");
+
+  useEffect(() => {
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [tab]);
 
   const notices = [
     {
@@ -65,7 +73,7 @@ const InfoMain: React.FC = () => {
     <>
       <IntroButtons activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="w-full h-auto text-center px-50">
-        {activeTab === "intro" ? (
+        {activeTab === "notice" ? (
           <Accordion items={notices} />
         ) : (
           <div className="flex flex-col justify-center gap-8">
