@@ -1,13 +1,13 @@
 export type TMatchForm = {
-    experience: "GROWTH_CAREER" | "CREATIVE_EXPRESSION" | "SOCIAL_RELAXATION" | "VALUE_ORIENTED";
-    activityformat: "REGULAR" | "FLEXIBLE" | "ANY";
-    recruitmethod: "ALWAYS" | "PERIODIC" | "ANY";
+    '어떤 방향의 경험을 기대': "GROWTH_CAREER" | "CREATIVE_EXPRESSION" | "SOCIAL_RELAXATION" | "VALUE_ORIENTED";
+    '원하는 활동 방식을 선택': "REGULAR" | "FLEXIBLE" | "ANY";
+    '모집 방식': "ALWAYS" | "PERIODIC" | "ANY";
 };
 
 export type TMatchResult={
     id: number;
     name: string;
-    tags: string[];
+    hashtags: string[];
     matchLevel: '완벽 일치' | '일부 조건 일치';
 };
 
