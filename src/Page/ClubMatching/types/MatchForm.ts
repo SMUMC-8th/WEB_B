@@ -5,9 +5,10 @@ export type TMatchForm = {
 };
 
 export type TMatchResult={
-    id: number;
+    clubId: number;
     name: string;
     hashtags: string[];
+    imageUrl: string;
     matchLevel: '완벽 일치' | '일부 조건 일치';
 };
 

@@ -6,8 +6,8 @@ import {
 
 import SearchBar from "./Page/ClubIntroDetail/components/SearchBar";
 import SideBar from "./Page/ClubIntroDetail/SideBar";
-import ClubDetailCard from "./Page/ClubIntroDetail/ClubDetailCard";
 import ClubMatching from "./Page/ClubMatching/pages/ClubMatching";
+import ClubIntroDetailPage from "./Page/ClubIntroDetail/ClubIntroDetailPage";
 
 function LayoutWithSidebar({ children }: { children: React.ReactNode }) {
   return (
@@ -26,18 +26,10 @@ function AppRoutes() {
   return (
     <Routes>
       <Route
-        path="/clubintrodetail"
+        path="/clubintrodetail/:clubId"
         element={
           <LayoutWithSidebar>
-            <ClubDetailCard
-              title="동아리명"
-              description="동아리 소개"
-              target="대상"
-              duration="기간"
-              method="방법"
-              activity="활동"
-              link="링크"
-            />
+            <ClubIntroDetailPage/>
           </LayoutWithSidebar>
         }
       />

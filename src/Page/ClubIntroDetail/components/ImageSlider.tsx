@@ -1,12 +1,20 @@
 import { useState } from "react"
 
-const ImageSlider=()=>{
+type Props = {
+    images: string[];
+};
+
+const ImageSlider=({images=[]}:Props)=>{
     const [currentIndex, setCurrentIndex]=useState(0);
-    const images=[
-        '',
-        '',
-        '',
-    ];
+
+    if (!images || images.length === 0) {
+        return (
+                <div className="w-[400px] h-[300px] flex items-center justify-center bg-gray-200 rounded-md">
+                    이미지 없음
+                </div>
+            );
+        }
+
 
     return(
         <div className="flex flex-col items-center">
