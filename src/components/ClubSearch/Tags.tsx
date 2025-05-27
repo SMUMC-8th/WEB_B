@@ -1,14 +1,19 @@
 import Card from '../ClubList/Card';
+import { TClub } from '../../types/club';
 
-const Tags = ({ data }) => {
+interface TagsProps {
+    data: TClub[];
+}
+
+const Tags = ({ data }: TagsProps) => {
     return (
         <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-            {data.map((club, idx) => (
+            {data.map((club) => (
                 <Card
-                    key={idx}
+                    key={club.clubId}
                     imageUrl={club.imageUrl}
-                    tags={club.tags}
-                    clubName={club.clubName}
+                    tags={club.hashtags}
+                    clubName={club.name}
                     description={club.description}
                 />
             ))}
