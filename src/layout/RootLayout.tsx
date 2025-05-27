@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 export default function RootLayout() {
   const location = useLocation();
   const isClubMatchingStep =
-    location.pathname.startsWith("/clubmatching/") &&
+    location.pathname.startsWith("/clubmatching") &&
     parseInt(location.pathname.split("/").pop() || "0") > 0;
 
   return (

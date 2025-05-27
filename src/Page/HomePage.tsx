@@ -3,10 +3,10 @@ import smu from "../assets/images/smu.svg"; // SVG를 경로로 불러오기
 import star from "../assets/images/star.svg"; // SVG를 경로로 불러오기
 import SearchBar from "../components/Home/SearchBar"; // SearchBar 컴포넌트 import
 import CategoryCard from "../components/Home/CategoryCard"; // CategoryCard 컴포넌트 import
-import axios from "axios";
 import { Club, ApiResponseClub } from "../types/ApiResponseType"; // ApiResponseType import
 // @ts-ignore
 import "@fontsource/gugi"; // Gugi 폰트 import해야하는데 ts-ignore로 무시해야해서 일단 추가해놨어요
+import { umcServerNoAuth } from "../utils/axios";
 
 const HomePage: React.FC = () => {
   const [clubs, setClubs] = useState<Club[]>([]);
@@ -15,7 +15,8 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const fetchClubs = async () => {
       try {
-        const response = await axios.get<ApiResponseClub>("/api/"); // 실제 API 주소로 변경
+        const response = await umcServerNoAuth.get<ApiResponseClub>(`/`); // 실제 API 주소로 변경
+        // console.log(response.data);
         if (response.data.isSuccess) {
           setClubs(response.data.result);
         }

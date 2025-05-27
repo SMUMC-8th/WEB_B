@@ -5,8 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import "react-big-calendar/lib/css/react-big-calendar.css"; // 스타일시트 가져오기
 import "../assets/styles/Calendar.css";
 import { umcServerNoAuth } from "../utils/axios";
+import { ApiCalendarResponse } from "../types/ApiResponseType";
 import {
-  ApiCalendarResponse,
   CalendarEvent,
   CLUB_NAME_TO_ID,
   CLUB_ID_TO_NAME,
@@ -27,7 +27,7 @@ function CalendarPage() {
         `/clubs/calendar/${clubId}`
       );
 
-      if (!!response.data) {
+      if (response.data) {
         const schedule = response.data.result;
         const newEvents: CalendarEvent[] = [];
         const clubName = CLUB_ID_TO_NAME[clubId];
@@ -121,7 +121,7 @@ function CalendarPage() {
   };
 
   return (
-    <article className="flex flex-col items-center justify-center flex-grow w-screen h-full px-40 pb-10">
+    <article className="flex flex-col items-center justify-center flex-grow w-full h-full px-40 pb-10">
       {/* 임시 article tag */}
       {/* <article className="w-[80%] h-[80%]"> */}
       <div className="flex items-center justify-between w-full px-4 py-5">

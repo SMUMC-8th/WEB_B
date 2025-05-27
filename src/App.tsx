@@ -8,6 +8,7 @@ import IntroPage from "./Page/IntroPage";
 import InfoPage from "./Page/InfoPage";
 import ClubSearchPage from "./Page/ClubSearchPage";
 import ClubMathcing from "./Page/ClubMatching";
+import ClubIntroDetailPage from "./Page/ClubIntroDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +33,13 @@ const router = createBrowserRouter([
         element: <ClubListPage />,
       },
       {
+        path: "/clubintrodetail/:clubId",
+        element: <ClubIntroDetailPage />,
+      },
+      {
         path: "/clubintro/:tab",
         element: <ClubListPage />,
       },
- 
       {
         path: "/clubmatching",
         element: <ClubMathcing />,
@@ -60,14 +64,13 @@ const router = createBrowserRouter([
         path: "/clubsearch",
         element: <ClubSearchPage />,
       },
-
     ],
   },
 ]);
 
 function App() {
   return (
-    <div className="flex flex-col w-screen h-screen">
+    <div className="flex flex-col w-full h-screen">
       <RouterProvider router={router} />
     </div>
   );

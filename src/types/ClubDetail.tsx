@@ -6,4 +6,5 @@ export type TClubDetail = {
   method: string;
   activity: string;
   link: string;
+  images: string[];
 };

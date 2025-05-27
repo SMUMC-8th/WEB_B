@@ -1,15 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-// import { FetchClubDetail } from './apis/FetchClubDetail';
 import ImageSlider from "./ImageSlider";
 import { TClubDetail } from "../../types/ClubDetail";
-import { fetchMockClubDetail } from "../../utils/mock";
+import { FetchClubDetail } from "../../utils/fetch";
 
-const ClubDetailCard = () => {
+const ClubDetailCard = ({ clubId }: { clubId: number }) => {
   const { data, isLoading, error } = useQuery<TClubDetail>({
-    queryKey: ["clubDetail"],
-    // queryFn:FetchClubDetail,
-    queryFn: fetchMockClubDetail,
+    queryKey: ["clubDetail", clubId],
+    queryFn: () => FetchClubDetail(clubId),
+    enabled: !isNaN(clubId) && clubId > 0, // 클럽 ID가 유효할 때만 쿼리 실행
   });
+
+  if (!clubId || isNaN(Number(clubId))) {
+    return <div className="p-10">동아리가 없습니다.</div>;
+  }
 
   if (isLoading) {
     return <div className="p-10">로딩 중......</div>;
@@ -22,7 +25,7 @@ const ClubDetailCard = () => {
 
   return (
     <div className="flex px-[100px] pt-[100px] pl-[150px] gap-[64px]">
-      <ImageSlider />
+      <ImageSlider images={data.images} />
       {/* <div className='w-[400px] bg-[#D9D9D9] h-[300px] rounded-md'>
                 <img></img>
             </div> */}
@@ -35,11 +38,11 @@ const ClubDetailCard = () => {
           {data!.description}
         </p>
         <ul className="space-y-2 text-sm">
-          <li>모집 대상: {data!.target}</li>
-          <li>모집 기간: {data!.duration}</li>
-          <li>모집 방법: {data!.method}</li>
-          <li>주요 활동: {data!.activity}</li>
-          <li>FAQ 및 관련 링크: {data!.link}</li>
+          <li>모집 대상: {data.target}</li>
+          <li>모집 기간: {data.duration}</li>
+          <li>모집 방법: {data.method}</li>
+          <li>주요 활동: {data.activity}</li>
+          <li>FAQ 및 관련 링크: {data.link}</li>
         </ul>
       </div>
     </div>
