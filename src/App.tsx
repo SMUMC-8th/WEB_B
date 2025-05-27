@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: "/clubintro/:tab",
         element: <ClubListPage />,
       },
- 
+
       {
         path: "/clubmatching",
         element: <ClubMathcing />,
@@ -60,7 +60,6 @@ const router = createBrowserRouter([
         path: "/clubsearch",
         element: <ClubSearchPage />,
       },
-
     ],
   },
 ]);

@@ -1,35 +1,60 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 import ClubMatchingIntro from "../components/ClubMatching/ClubMatchingIntro";
 import ClubMatchingExperience from "../components/ClubMatching/ClubMatchingExperience";
 import ClubMatchingActivityFormat from "../components/ClubMatching/ClubMatchingActivityFormat";
 import ClubMatchingRecruitMethod from "../components/ClubMatching/ClubMatchingRecruitMethod";
 import ClubMatchingResult from "../components/ClubMatching/ClubMatchingResult";
 import ClubMatchingHeader from "../components/ClubMatching/ClubMatchingHeader";
+import { TMatchForm } from "../types/MatchForm";
 
 const ClubMatching = () => {
-  const { step } = useParams();
-  const navigate = useNavigate();
-  const currentStep = step ? parseInt(step) : 0;
+  const [step, setStep] = useState(0);
 
-  const handleNext = (nextStep: number) => {
-    navigate(`/clubmatching/${nextStep}`);
-  };
+  const [matchForm, setMatchForm] = useState<TMatchForm>({
+    "어떤 방향의 경험을 기대": "GROWTH_CAREER",
+    "원하는 활동 방식을 선택": "REGULAR",
+    "모집 방식": "ALWAYS",
+  });
 
   return (
-    <>
-      <ClubMatchingHeader step={currentStep} setStep={handleNext} />
-      {currentStep === 0 && <ClubMatchingIntro onNext={() => handleNext(1)} />}
-      {currentStep === 1 && (
-        <ClubMatchingExperience onNext={() => handleNext(2)} />
+    <div>
+      <ClubMatchingHeader step={step} setStep={setStep} />
+      {step === 0 && <ClubMatchingIntro onNext={() => setStep(1)} />}
+      {step === 1 && (
+        <ClubMatchingExperience
+          onNext={() => setStep(2)}
+          setFormValue={(value) =>
+            setMatchForm((prev) => ({
+              ...prev,
+              "어떤 방향의 경험을 기대": value,
+            }))
+          }
+        />
       )}
-      {currentStep === 2 && (
-        <ClubMatchingActivityFormat onNext={() => handleNext(3)} />
+      {step === 2 && (
+        <ClubMatchingActivityFormat
+          onNext={() => setStep(3)}
+          setFormValue={(value) =>
+            setMatchForm((prev) => ({
+              ...prev,
+              "원하는 활동 방식을 선택": value,
+            }))
+          }
+        />
       )}
-      {currentStep === 3 && (
-        <ClubMatchingRecruitMethod onNext={() => handleNext(4)} />
+      {step === 3 && (
+        <ClubMatchingRecruitMethod
+          onNext={() => setStep(4)}
+          setFormValue={(value) =>
+            setMatchForm((prev) => ({
+              ...prev,
+              "모집 방식": value,
+            }))
+          }
+        />
       )}
-      {currentStep === 4 && <ClubMatchingResult />}
-    </>
+      {step === 4 && <ClubMatchingResult matchForm={matchForm} />}
+    </div>
   );
 };
 
