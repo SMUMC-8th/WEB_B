@@ -7,9 +7,11 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
   server: {
     proxy: {
-      "/clubs": {
+      "/api": {
         target: "http://13.124.210.26:8080",
         changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },

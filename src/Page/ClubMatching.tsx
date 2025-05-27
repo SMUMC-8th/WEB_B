@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ClubMatchingIntro from "../components/ClubMatching/ClubMatchingIntro";
 import ClubMatchingExperience from "../components/ClubMatching/ClubMatchingExperience";
 import ClubMatchingActivityFormat from "../components/ClubMatching/ClubMatchingActivityFormat";
@@ -8,7 +9,27 @@ import ClubMatchingHeader from "../components/ClubMatching/ClubMatchingHeader";
 import { TMatchForm } from "../types/MatchForm";
 
 const ClubMatching = () => {
+  const navigate = useNavigate();
+  const { step: stepParam } = useParams();
   const [step, setStep] = useState(0);
+
+  useEffect(() => {
+    if (stepParam) {
+      const stepNumber = parseInt(stepParam);
+      if (!isNaN(stepNumber) && stepNumber >= 0 && stepNumber <= 4) {
+        setStep(stepNumber);
+      }
+    }
+  }, [stepParam]);
+
+  const handleStepChange = (newStep: number) => {
+    setStep(newStep);
+    if (newStep > 0) {
+      navigate(`/clubmatching/${newStep}`);
+    } else {
+      navigate("/clubmatching");
+    }
+  };
 
   const [matchForm, setMatchForm] = useState<TMatchForm>({
     "어떤 방향의 경험을 기대": "GROWTH_CAREER",
@@ -17,12 +38,12 @@ const ClubMatching = () => {
   });
 
   return (
-    <div>
-      <ClubMatchingHeader step={step} setStep={setStep} />
-      {step === 0 && <ClubMatchingIntro onNext={() => setStep(1)} />}
+    <div className="w-full h-full">
+      <ClubMatchingHeader step={step} setStep={handleStepChange} />
+      {step === 0 && <ClubMatchingIntro onNext={() => handleStepChange(1)} />}
       {step === 1 && (
         <ClubMatchingExperience
-          onNext={() => setStep(2)}
+          onNext={() => handleStepChange(2)}
           setFormValue={(value) =>
             setMatchForm((prev) => ({
               ...prev,
@@ -33,7 +54,7 @@ const ClubMatching = () => {
       )}
       {step === 2 && (
         <ClubMatchingActivityFormat
-          onNext={() => setStep(3)}
+          onNext={() => handleStepChange(3)}
           setFormValue={(value) =>
             setMatchForm((prev) => ({
               ...prev,
@@ -44,7 +65,7 @@ const ClubMatching = () => {
       )}
       {step === 3 && (
         <ClubMatchingRecruitMethod
-          onNext={() => setStep(4)}
+          onNext={() => handleStepChange(4)}
           setFormValue={(value) =>
             setMatchForm((prev) => ({
               ...prev,
