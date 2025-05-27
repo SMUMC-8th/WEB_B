@@ -24,7 +24,7 @@ const ClubDetailCard = ({ clubId }: { clubId: number }) => {
   }
 
   return (
-    <div className="flex px-[100px] pt-[100px] pl-[150px] gap-[64px]">
+    <div className="flex px-[200px] pt-[100px] pl-[150px] gap-[64px]">
       <ImageSlider images={data.images} />
       {/* <div className='w-[400px] bg-[#D9D9D9] h-[300px] rounded-md'>
                 <img></img>
