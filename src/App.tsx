@@ -64,6 +64,10 @@ const router = createBrowserRouter([
         path: "/clubsearch",
         element: <ClubSearchPage />,
       },
+      {
+        path: "/clubsearch/:keyword",
+        element: <ClubSearchPage />,
+      },
     ],
   },
 ]);

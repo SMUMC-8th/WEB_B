@@ -61,17 +61,16 @@ const HomePage: React.FC = () => {
           {isLoading ? (
             <p>로딩 중...</p>
           ) : (
-            clubs.map(
-              (club) => (
-                <CategoryCard
-                  key={club.clubId}
-                  category={club.category}
-                  hash={club.hashtags?.[0] || ""}
-                  clubName={club.name}
-                  imageUrl={club.imageUrl}
-                />
-              ) // 동아리 카드 컴포넌트
-            )
+            clubs.map((club) => (
+              <CategoryCard
+                key={club.clubId}
+                category={club.category}
+                hash={club.hashtags?.[0] || ""}
+                clubName={club.name}
+                imageUrl={club.imageUrl}
+                clubId={club.clubId}
+              />
+            ))
           )}
         </div>
       </div>
