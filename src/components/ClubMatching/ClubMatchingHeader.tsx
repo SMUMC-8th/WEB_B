@@ -1,22 +1,26 @@
 import { Props } from "../../types/MatchForm";
 import StepArrow from "./StepArrow";
 import StepBar from "./StepBar";
+import SMUClubLogo from "../../assets/images/SMUClub_LOGO.svg";
+import { useNavigate } from "react-router-dom";
 
 const ClubMatchingHeader = ({ step, setStep }: Props) => {
   const hideArrow = step === 1;
   const hideStepSection = step === 4;
+  const navigate = useNavigate();
 
   if (step === 0) {
     return null;
   }
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <div className="w-full max-w-[1440px] flex justify-between items-start">
         <img
-          src="/src/assets/images/SMUClub_LOGO.svg"
+          onClick={() => navigate("/")}
+          src={SMUClubLogo}
           alt="로고"
-          className="w-[200px] ml-[180px] mb-8"
+          className="w-[200px] ml-[180px] mb-8 cursor-pointer"
         />
       </div>
 
